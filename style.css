@@ -1,0 +1,58 @@
+/* Base styling, using Menlo and no bold text */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Menlo, monospace; /* monospaced, as requested */
+  font-weight: 400;             /* medium weight, no bold */
+  background: #f8f8f8;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Header and controls container */
+header {
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem;
+  background: #fff;
+}
+
+#controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* left-justified */
+  gap: 0.5rem;
+}
+
+/* Buttons and input styling */
+#controls label {
+  margin-right: 0.25rem;
+  color: #333;
+}
+
+/* Main container with a 1px border */
+main {
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
+
+/* Container for the SVG image */
+#svgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 80vh; /* ensure there's room to display the image */
+  overflow: auto;   /* allows scrolling if image is zoomed large */
+}
+
+/* The displayed SVG (inside <img>) */
+#svgImage {
+  transform-origin: center center; /* ensures zooming from center */
+  border: 1px solid #ccc;
+  background: #fff;
+  max-width: 100%;  /* default to fit container */
+  max-height: 100%; /* default to fit container height */
+}

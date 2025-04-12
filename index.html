@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Ensures mobile-friendly viewport scaling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Sleek SVG Viewer</title>
+
+  <!-- Reference your CSS -->
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Reference your script -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Header with controls -->
+  <header>
+    <div id="controls">
+      <label for="fileInput">Choose an SVG file:</label>
+      <input type="file" id="fileInput" accept=".svg" />
+
+      <button id="zoomInBtn">Zoom In</button>
+      <button id="zoomOutBtn">Zoom Out</button>
+      <button id="fitScreenBtn">Fit to Screen</button>
+    </div>
+  </header>
+
+  <!-- Main area for the SVG -->
+  <main>
+    <div id="svgContainer">
+      <!-- The <img> will get its 'src' set once a file is chosen -->
+      <img id="svgImage" alt="Your SVG will appear here" />
+    </div>
+  </main>
+</body>
+</html>
