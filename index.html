@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Ensures mobile-friendly viewport scaling -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Sleek SVG Viewer</title>
@@ -17,12 +16,24 @@
   <!-- Header with controls -->
   <header>
     <div id="controls">
-      <label for="fileInput">Choose an SVG file:</label>
-      <input type="file" id="fileInput" accept=".svg" />
+      <!-- App Title -->
+      <div class="TITLE">SVG_VIEW</div>
+      
+      <!-- Custom button for choosing file (label triggers hidden input) -->
+      <label for="fileInput" id="chooseFileBtn">Choose File</label>
+      <input type="file" id="fileInput" accept=".svg" hidden />
 
+      <!-- Zoom / Fit / Reset / x10 Controls -->
       <button id="zoomInBtn">Zoom In</button>
       <button id="zoomOutBtn">Zoom Out</button>
       <button id="fitScreenBtn">Fit to Screen</button>
+      <button id="resetBtn">Reset</button>
+      
+      <!-- x10 toggle, default is off -->
+      <label class="toggleLabel">
+        <input type="checkbox" id="x10Toggle" />
+        x10
+      </label>
     </div>
   </header>
 

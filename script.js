@@ -4,9 +4,16 @@ window.addEventListener('DOMContentLoaded', () => {
   const zoomInBtn = document.getElementById('zoomInBtn');
   const zoomOutBtn = document.getElementById('zoomOutBtn');
   const fitScreenBtn = document.getElementById('fitScreenBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const x10Toggle = document.getElementById('x10Toggle');
 
   // Keep track of current zoom level
   let scale = 1;
+
+  // Decide on the zoom step
+  function getZoomStep() {
+    return x10Toggle.checked ? 1.0 : 0.1;
+  }
 
   // Handle file selection
   fileInput.addEventListener('change', () => {
@@ -26,41 +33,43 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Zoom In
   zoomInBtn.addEventListener('click', () => {
-    scale += 0.1;
+    scale += getZoomStep();
     svgImage.style.transform = `scale(${scale})`;
   });
 
   // Zoom Out
   zoomOutBtn.addEventListener('click', () => {
-    scale = Math.max(0.1, scale - 0.1); // keep scale above 0
+    scale = Math.max(0.1, scale - getZoomStep());
     svgImage.style.transform = `scale(${scale})`;
   });
 
   // Fit to Screen
   fitScreenBtn.addEventListener('click', () => {
-    if (!svgImage.src) return; // If no image loaded, do nothing
+    if (!svgImage.src) return; // If no image is loaded, do nothing
     
-    // Wait until the image has size info
     const tempImg = new Image();
     tempImg.src = svgImage.src;
-    
-    // onload ensures we have the natural width/height
     tempImg.onload = () => {
       const naturalWidth = tempImg.naturalWidth;
       const naturalHeight = tempImg.naturalHeight;
-
+      
       // Container dimensions
       const container = document.getElementById('svgContainer');
       const containerWidth = container.clientWidth;
       const containerHeight = container.clientHeight;
 
-      // We want to scale so the SVG fits within the container in both dimensions
+      // Fit so image won't overflow either dimension
       const widthRatio = containerWidth / naturalWidth;
       const heightRatio = containerHeight / naturalHeight;
       scale = Math.min(widthRatio, heightRatio);
 
-      // Apply the new scale
       svgImage.style.transform = `scale(${scale})`;
     };
+  });
+
+  // Reset to default (100%) zoom
+  resetBtn.addEventListener('click', () => {
+    scale = 1;
+    svgImage.style.transform = `scale(${scale})`;
   });
 });

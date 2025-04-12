@@ -4,7 +4,7 @@ html, body {
   padding: 0;
   font-family: Menlo, monospace; /* monospaced, as requested */
   font-weight: 400;             /* medium weight, no bold */
-  background: #f8f8f8;
+  background: #E0E2D7;
   box-sizing: border-box;
 }
 
@@ -16,9 +16,19 @@ html, body {
 header {
   border-bottom: 1px solid #ccc;
   padding: 0.5rem;
-  background: #fff;
+  background: #707069;
 }
 
+/* App Title styling */
+.TITLE {
+  font-size: 2em;
+  color: #ADACA1;
+  padding: 0.1em;
+  border-right: 1px solid #8b8c85;
+  margin-right: 0.2em;
+}
+
+/* Controls container */
 #controls {
   display: flex;
   align-items: center;
@@ -26,10 +36,60 @@ header {
   gap: 0.5rem;
 }
 
-/* Buttons and input styling */
-#controls label {
-  margin-right: 0.25rem;
-  color: #333;
+/* Label that acts as a file-choose button */
+#chooseFileBtn {
+  padding: 0.3em 0.6em;
+  background-color: #CCD1B9;
+  border: 1px solid #aaa;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Hover state for the custom file-choose button */
+#chooseFileBtn:hover {
+  background-color: #BFC4AB;
+}
+
+/* Zoom/fit/reset buttons */
+#zoomInBtn,
+#zoomOutBtn,
+#fitScreenBtn,
+#resetBtn {
+  padding: 0.3em 0.6em;
+  background-color: #9AA28D;
+  border: 1px solid #aaa;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Hover state for all standard buttons */
+#zoomInBtn:hover,
+#zoomOutBtn:hover,
+#fitScreenBtn:hover,
+#resetBtn:hover {
+  background-color: #8F977F;
+}
+
+/* x10 toggle label (styled to match other buttons) */
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  cursor: pointer;
+  padding: 0.3em 0.6em;
+  background-color: #9AA28D; /* same as other buttons */
+  border: 1px solid #aaa;
+  transition: background-color 0.3s;
+}
+
+/* Hover state for x10 toggle */
+.toggleLabel:hover {
+  background-color: #8F977F; /* same hover as other buttons */
+}
+
+/* The checkbox inside the label */
+.toggleLabel input {
+  cursor: pointer;
 }
 
 /* Main container with a 1px border */
